@@ -1,31 +1,10 @@
 /**
- * Created by Deegha on 12/05/2018
+ * Created by Deegha on 12/04/2018
  */
-import { jobList } from "./mockData"
 
-const baseUrl = "https://jobs.github.com"
+import Fire  from "./fire"
 
-const headers = {
-    "Content-Type": "application/json",
-    "Accept" : "application/json"
-}
+export const getProductsList  = _=> Fire.database().ref("products").once("value")                       
+export const createProduct = product => Fire.database().ref("products").push(product)
 
-export const checkStatusAndGetJSON = (fetchResponse) =>
-    fetchResponse.ok
-        ? Promise.resolve(fetchResponse).then(response => response.json())
-        : Promise.resolve(fetchResponse).then(apiError => apiError.json()).then(error => Promise.reject(error))
-
-const get = (path) => fetch(baseUrl+path, {
-    headers: headers
-}).then(checkStatusAndGetJSON)
-
-export const getJobList = () => new Promise(function(resolve, reject) {
-                                    setTimeout(function() {
-                                    resolve(jobList);
-                                    }, 4000); // Wait 4s 
-                                })
-
-/**
- * commenting this api call becouse the api does not work
-*/
-// export const getJobList = get("/positions.json?description=react&location=remote")
+export const getMakesList  = _=> Fire.database().ref("make").once("value")  

@@ -1,0 +1,26 @@
+.imageUploaderContainer {
+  width: 100%;
+  display: flex; }
+
+.btnUpload {
+  width: 150px;
+  height: 140px;
+  background-color: #00bcd4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ecf0f1;
+  font-size: 800;
+  cursor: pointer;
+  transition: 1s ease; }
+
+.imageUploadPreview {
+  width: 150px;
+  height: 140px;
+  margin-right: 5px;
+  transition: 1s ease; }
+
+.imageUploadProgress {
+  height: 2px;
+  background-color: #9b59b6;
+  color: #ecf0f1; }

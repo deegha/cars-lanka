@@ -17,22 +17,22 @@ import PaddingContainer from "../paddingContainer/paddingContainer"
 
 import "./node.css"
 
-const Node = ({job, like, nodeKey, activeJob}) => 
+const Node = ({product, nodeKey}) => 
     <Card className="wrapper">
         <PaddingContainer padding="10px">
         <FelxRow>
             <div className="companyLogo">
-                <a href={job.company_url} target="new">
-                    <img alt="log" src={job.company_logo} />
+                <a href={product.company_url} target="new">
+                    <img alt="log" src={product.company_logo} />
                 </a>
             </div>
             <div className="jobDetails">
-                <H1>{job.title}</H1>
-                <H2>{job.company}</H2>
-                <Text>{job.description.substring(0,500).replace(/<\/?[^>]+(>|$)/g, "")} ...</Text>
-                <Link to={"jobPage/"+job.id} >Read more...</Link>
+                <H1>{product.title}</H1>
+                <H2>{product.company}</H2>
+                <Text>{product.description.substring(0,500).replace(/<\/?[^>]+(>|$)/g, "")} ...</Text>
+                <Link to={"productPage/"+product.id} >Read more...</Link>
                 <hr className="lineBreaker"/>
-                <JobExtras job={job} />
+                <JobExtras job={product} />
             </div>
        </FelxRow>
        </PaddingContainer>

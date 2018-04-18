@@ -1,6 +1,5 @@
 import React from "react"
 
-import Liked from "../liked/liked"
 import Icon from "../icon/icon"
 
 import "./jobExtras.css"
@@ -18,7 +17,6 @@ const JobExtras = ({job}) => <div className="jobDetailsExtrasContainer">
     <span className="jobDetailExtras">
         <Icon name="calendar" />{job.created_at}
     </span>
-    <Liked liked={job.liked} nodeKey={job.id} />
 </div>
 
 export default JobExtras

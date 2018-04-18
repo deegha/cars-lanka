@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 import notLikedIcon from "../../../utils/heartHolo.svg"
 import likedIcon from "../../../utils/like.svg"
 
-import {likeJob} from "../../../actions/jobActions"
+import {likeJob} from "../../../actions/productListActions"
 
 import "./liked.css"
 

@@ -4,10 +4,10 @@
 
 import { combineReducers } from "redux"
 
-import { jobReducer as jobs } from "./jobReducer"
-import { activeJobReducer as activeJob } from "./activeJobReducer"
+import { productsListReducer as products } from "./productsListReducer"
+import { productReducer as product } from "./productReducer"
 
 export const rootReducer = combineReducers({
-    jobs,
-    activeJob
+    products,
+    product
 })
