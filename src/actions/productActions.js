@@ -32,7 +32,11 @@ export const createProductSuccess = _ => ({
 })
 
 export const createProductAction = _ => (dispatch, getState) => {
-    const product = getState().product.product
+    const product = {
+        ...getState().product.product,
+        created_at :  Date.now(),
+    }
+
     dispatch(productRequest)
     createProduct(product)
         .then(res => dispatch(createProductSuccess()))

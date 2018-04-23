@@ -16,13 +16,14 @@ export const makesFail = _=> ({
     type : GET_MAKES_FAIL
 })
 
-export const makesSuccess = makes=> ({
+export const makesSuccess = makes => ({
     type : GET_MAKES_SUCCESS,
     makes
 })
 
-export const getMakes = _=>dispatch => {
+export const getMakes = _=> dispatch => {
+    dispatch(makesRequest())
     getMakesList()
-        .then(makes => console.log(makes.val()))
+        .then(makes => dispatch(makesSuccess(makes.val())))
         .catch(err => console.log(err))
 }

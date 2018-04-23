@@ -1,5 +1,5 @@
 .companyLogo {
-  width: 15%;
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -7,7 +7,7 @@
     width: 80%; }
 
 .jobDetails {
-  width: 80%; }
+  width: 60%; }
   .jobDetails a {
     color: #999;
     text-decoration: none; }

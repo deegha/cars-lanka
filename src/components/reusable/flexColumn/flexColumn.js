@@ -4,7 +4,7 @@
 
 import React from "react"
 
-import "./felxColumn.css"
+import "./flexColumn.css"
 
 const FelxColumn = ({children}) => <div className="felxColumn">{children}</div>
 

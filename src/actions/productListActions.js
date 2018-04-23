@@ -35,6 +35,6 @@ export const getProductsSuccess = products => ({
 export const fetchProductsList = () => dispatch => {
     dispatch(getProductsRequest())
     getProductsList()
-        .then(data => dispatch(getProductsSuccess(data.val())))
+        .then(data => { dispatch(getProductsSuccess(data.val()))} )
         .catch(err => getProductsFail())
 }   

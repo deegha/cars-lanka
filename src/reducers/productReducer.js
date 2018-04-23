@@ -7,8 +7,8 @@ import * as Actions from "../actions/productActions"
 const initialState = {
     product : {
         id : "",
-        category : "",
-        sub_category : "",
+        category : "vehicles",
+        sub_category : "cars",
         user : "",
         created_at : "",
         title : "",
@@ -21,9 +21,7 @@ const initialState = {
         engine_capacity : "",
         description : "",
         images : [],
-        contacts : [{
-            number : ""
-        }],
+        contacts : [{}],
         views : 0
     },
     loading : false
@@ -44,15 +42,14 @@ export const productReducer = (state = initialState, action) => {
                     [action.feild] : action.value
                 }
             }    
-        case Actions.HANDLE_FORM_VALUE_CONTACT : 
+        case Actions.HANDLE_FORM_VALUE_CONTACT :
             return {
                 ...state,
                 product : {
                     ...state.product,
-                    contacts : [
-                        ...state.contacts,
-                        state.contacts[action.key] = action.value
-                    ]
+                    contacts : state.product.contacts.map((contact ,key) => key===action.key? {number : action.value} : contact)
+                         
+                    
                 }
             }
         case Actions.CREATE_PRODUCT_SUCCESS :

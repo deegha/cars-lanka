@@ -9,7 +9,7 @@ import ImUploader from "../reusable/imageUploader/imageUploader"
 import Card from "../reusable/card/card"
 import PaddingContainer from "../reusable/paddingContainer/paddingContainer"
 
-const CreateProduct = ({addImage, creatProduct, product, handleChange, handleTextChange, handleTextChangeContact, submitForm}) => 
+const CreateProduct = ({handleAutoCompleteChange, makes, addImage, product, handleChange, handleTextChange, handleTextChangeContact, submitForm}) => 
 <Container>
     <Card>
         <PaddingContainer padding="20px 40px">
@@ -17,7 +17,8 @@ const CreateProduct = ({addImage, creatProduct, product, handleChange, handleTex
         </PaddingContainer>    
     </Card>
     <ProductForm 
-        creatProduct={creatProduct} 
+        makes = {makes}
+        handleAutoCompleteChange = {handleAutoCompleteChange} 
         product={product} 
         handleChange={handleChange}
         handleTextChange={handleTextChange} 

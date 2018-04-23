@@ -13,15 +13,21 @@ import Loading from "../reusable/loading/loading"
 
 const List = ({products}) => 
 
-<div className="jobListContainer"> {console.log(products.products)}
-    {products.loading?<Loading/>: products.products.map((product, key) => 
-        <Node nodeKey={key} key={product.id} product={product}/>)}
+<div className="jobListContainer"> 
+    <div className="jobListWrapper"> 
+    {products.loading?<Loading/>: products.products.map((product, key) => <Node nodeKey={key} key={key} product={product}/>)}
     <ScrollTop />
+    </div> 
 </div>
 
-const mapStateToProps = (state) => ({
-    products : state.products
-})
+const mapStateToProps = (state) =>  {
+    console.log(state)
+    return ({
+        products : state.products
+    })
+}
 
 
 export default connect(mapStateToProps)(List)
+
+//

@@ -11,7 +11,7 @@ import List from "./components/list/List"
 import SingleContainer from "./components/single/SingleContainer"
 import PageNotFound from "./components/pageNotFound/pageNotFound"
 import CreateProductContainer from "./components/createProduct/createProductContainer"
-
+import Header from "./components/header/header"
 import { fetchProductsList } from "./actions/productListActions"
 
 import "./App.css"
@@ -25,6 +25,8 @@ class App extends Component {
   render() {
     return <Router>
       <div>
+        <Header />
+        <div className="spaceBetween" />
         <Switch>
           <Route exact path="/" component={List} />
           <Route path="/createProduct" component={CreateProductContainer} />

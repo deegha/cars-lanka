@@ -1,11 +1,11 @@
-.jobDetailsExtrasContainer {
+.productExtrasContainer {
   padding: 20px 0;
   display: inline-flex; }
-  .jobDetailsExtrasContainer .jobDetailExtras {
+  .productExtrasContainer .productDetailExtras {
     color: #999;
     font-size: 14px;
     font-weight: 100;
     margin-right: 15px; }
-  .jobDetailsExtrasContainer a {
+  .productExtrasContainer a {
     color: #999;
     text-decoration: none; }

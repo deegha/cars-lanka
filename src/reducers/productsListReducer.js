@@ -8,17 +8,22 @@ const initialState = {
     products : [
         {
             id : "",
+            category : "vehicles",
+            sub_category : "cars",
+            user : "",
             created_at : "",
             title : "",
             location : "",
-            type : "",
+            make : "",
+            model : "",
+            manufacture_year : "",
+            condition : "",
+            mileage : "",
+            engine_capacity : "",
             description : "",
-            how_to_apply : "",
-            company : "",
-            company_url : "",
-            company_logo : "",
-            url : "",
-            liked : false
+            images : [],
+            contacts : [{}],
+            views : 0
         }
     ],
     loading : false
@@ -39,7 +44,7 @@ export const productsListReducer = (state = initialState, action) => {
         case Actions.GET_PRODUCTS_SUCCESS :
             return {
                 ...state,
-                products : [...action.products] ,
+                products : Object.keys(action.products).map(product => action.products[product]) ,
                 loading : false
             }
         default :

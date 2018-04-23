@@ -12,8 +12,9 @@ import H2 from "../heading/H2"
 import Text from "../text/text"
 import Card from "../card/card"
 import FelxRow from "../flexRow/felxRow"
-import JobExtras from "../jobExtras/jobExtras"
+import ProductExtras from "../productExtras/productExtras"
 import PaddingContainer from "../paddingContainer/paddingContainer"
+import Carousel from "../carousel/carousel"
 
 import "./node.css"
 
@@ -22,9 +23,7 @@ const Node = ({product, nodeKey}) =>
         <PaddingContainer padding="10px">
         <FelxRow>
             <div className="companyLogo">
-                <a href={product.company_url} target="new">
-                    <img alt="log" src={product.company_logo} />
-                </a>
+                <Carousel images={product.images} />
             </div>
             <div className="jobDetails">
                 <H1>{product.title}</H1>
@@ -32,7 +31,7 @@ const Node = ({product, nodeKey}) =>
                 <Text>{product.description.substring(0,500).replace(/<\/?[^>]+(>|$)/g, "")} ...</Text>
                 <Link to={"productPage/"+product.id} >Read more...</Link>
                 <hr className="lineBreaker"/>
-                <JobExtras job={product} />
+                <ProductExtras product={product} />
             </div>
        </FelxRow>
        </PaddingContainer>
