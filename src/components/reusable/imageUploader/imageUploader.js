@@ -3,6 +3,9 @@ import Fire from "../../../services/fire"
 import FileUploader from 'react-firebase-file-uploader'
 import "./imageUploader.css"
 import CircularProgress from 'material-ui/CircularProgress'
+import FlexRow from "../flexColumn/flexColumn"
+import FlatButton from 'material-ui/FlatButton'
+
 
 class ProfilePage extends Component {
   state = {
@@ -11,7 +14,6 @@ class ProfilePage extends Component {
     progress: 0,
   };
 
-  handleChangeUsername = (event) => this.setState({username: event.target.value})
   handleUploadStart = () => this.setState({isUploading: true, progress: 0})
   handleProgress = (progress) => this.setState({progress})
   handleUploadError = (error) => {
@@ -24,10 +26,25 @@ class ProfilePage extends Component {
         .child(filename).getDownloadURL().then(url =>this.props.addImage(url))
   }
 
-  render() {
+  removeImage = (image, removeImage) => _ => {
+    const desertRef  = Fire.storage().refFromURL(image)
+
+    desertRef.delete().then(function() {
+      removeImage(image)
+      console.log("image removed")
+    }).catch(function(error) {
+      console.log(error)
+    });
+  }
+
+  render() { console.log(this.props)
     return (
       <div className="imageUploaderContainer">
-        {this.props.images.map(image =>  <img className="imageUploadPreview" key={image} src={image} />)}
+        {this.props.images.map(image =>  <FlexRow key={image}>
+            <img className="imageUploadPreview" alt={image}  src={image} />
+            <FlatButton label="Remove image" onClick={this.removeImage(image, this.props.removeImage)} secondary={true} />
+            </FlexRow>)}
+
         {this.state.images.length < 5 ?
         <label className="btnUpload"  
             style={{

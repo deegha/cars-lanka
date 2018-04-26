@@ -7,6 +7,7 @@ import * as Actions from "../actions/productActions"
 const initialState = {
     product : {
         id : "",
+        status : 1,
         category : "vehicles",
         sub_category : "cars",
         user : "",
@@ -15,11 +16,16 @@ const initialState = {
         location : "",
         make : "",
         model : "",
+        body_type : "",
+        transmission : "",
+        fuel_type : "",
         manufacture_year : "",
         condition : "",
         mileage : "",
         engine_capacity : "",
         description : "",
+        price : "",
+        nego : "",
         images : [],
         contacts : [{}],
         views : 0
@@ -47,9 +53,7 @@ export const productReducer = (state = initialState, action) => {
                 ...state,
                 product : {
                     ...state.product,
-                    contacts : state.product.contacts.map((contact ,key) => key===action.key? {number : action.value} : contact)
-                         
-                    
+                    contacts : state.product.contacts.map((contact ,key) => key===action.key? {number : action.value} : contact)                    
                 }
             }
         case Actions.CREATE_PRODUCT_SUCCESS :
@@ -64,6 +68,15 @@ export const productReducer = (state = initialState, action) => {
                 product : {
                     ...state.product,
                     images : [...state.product.images, action.image]
+                }
+            }
+        case Actions.REMOVE_PRODUCT_IMAGE : 
+
+            return {
+                ...state,
+                product : {
+                    ...state.product,
+                    images : state.product.images.filter( image => image !== action.image )
                 }
             }
         default : 

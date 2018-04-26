@@ -5,27 +5,7 @@
 import * as Actions from "../actions/productListActions"
 
 const initialState = {
-    products : [
-        {
-            id : "",
-            category : "vehicles",
-            sub_category : "cars",
-            user : "",
-            created_at : "",
-            title : "",
-            location : "",
-            make : "",
-            model : "",
-            manufacture_year : "",
-            condition : "",
-            mileage : "",
-            engine_capacity : "",
-            description : "",
-            images : [],
-            contacts : [{}],
-            views : 0
-        }
-    ],
+    products : [],
     loading : false
 }
 

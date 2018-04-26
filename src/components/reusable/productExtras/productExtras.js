@@ -11,7 +11,7 @@ const ProductExtras = ({product}) => <div className="productExtrasContainer">
     </span> 
     <span className="productDetailExtras">
         <Icon name="building" />
-        {product.model}
+        {product.transmission}
     </span>   
     <span className="productDetailExtras">
         <Icon name="map-marker" />{product.location}
@@ -21,7 +21,7 @@ const ProductExtras = ({product}) => <div className="productExtrasContainer">
         <Icon name="desktop" />
         {product.mileage} KM
     </span>
-    <span className="productDetailExtras">{console.log(product.contacts[0].number)}
+    <span className="productDetailExtras">
         {Object.keys(product.contacts).map(contact => <span key={contact}><Icon name="calendar" />{product.contacts[contact].number}</span>)}
         
     </span>

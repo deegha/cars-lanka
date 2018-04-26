@@ -26,8 +26,8 @@ const Node = ({product, nodeKey}) =>
                 <Carousel images={product.images} />
             </div>
             <div className="jobDetails">
-                <H1>{product.title}</H1>
-                <H2>{product.company}</H2>
+                <H1>{product.make+" "+product.model}</H1>
+                <H2>Rs : 200000</H2>
                 <Text>{product.description.substring(0,500).replace(/<\/?[^>]+(>|$)/g, "")} ...</Text>
                 <Link to={"productPage/"+product.id} >Read more...</Link>
                 <hr className="lineBreaker"/>
