@@ -3,7 +3,27 @@
   position: fixed;
   top: 0;
   width: 100%;
-  display: flex;
   align-items: center;
-  background-color: black;
+  background-color: #000000;
   z-index: 2; }
+  .headerMain .sitelogoArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 64px; }
+  .headerMain .postAdd {
+    display: inline;
+    float: right;
+    position: relative;
+    top: -51px;
+    left: -34px;
+    background-color: #ffffff;
+    padding: 12px 27px;
+    color: black;
+    border-radius: 2px;
+    cursor: pointer; }
+    .headerMain .postAdd a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 800; }

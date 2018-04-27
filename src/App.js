@@ -5,7 +5,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from "react-redux"
-
+import Notifications from 'react-notify-toast'
 
 import List from "./components/list/List"
 import SingleContainer from "./components/single/SingleContainer"
@@ -49,7 +49,7 @@ class App extends Component {
     return <Router>
      
       <div>
-      
+        <Notifications />
         <Header />
         <div className="spaceBetween" />
         <Switch>
@@ -57,7 +57,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/logOut" component={LogOut} />
           <Route exact path="/register" component={Register} />
-          <Route path="/createProduct" component={CreateProductContainer} />
+          <Route path="/createProduct" component={this.props.authenticated?CreateProductContainer:Login} />
           {/* <Route path="/productPage/:id" component={SingleContainer} /> */}
           <Route component={PageNotFound}/>
         </Switch>
@@ -66,7 +66,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = ({authentication}) => ({
+  authenticated :authentication.authenticated
+})
 
 const mapDispatchToProps = dipatch => ({
   productsList : () => dipatch(fetchProductsList()),

@@ -9,8 +9,8 @@ const Header = ({authenticated}) =>
     <div className="sitelogoArea">
         <img src={Logo} alt="cars lanka logo"/>
     </div>
-    <div>
-        {authenticated?<Link to="/logout" >Logout</Link>:<Link to="/login" >Login</Link>}
+    <div className="postAdd">
+        {authenticated?<Link to="/logout" >Logout</Link>:<Link to="/createProduct" >Post add for free</Link>}
     </div>
 </div>
 

@@ -27,9 +27,9 @@ const Node = ({product, nodeKey}) =>
             </div>
             <div className="jobDetails">
                 <H1>{product.make+" "+product.model}</H1>
-                <H2>Rs : 200000</H2>
-                <Text>{product.description.substring(0,500).replace(/<\/?[^>]+(>|$)/g, "")} ...</Text>
-                <Link to={"productPage/"+product.id} >Read more...</Link>
+                <H2>Rs : 200,000</H2>
+                {/* <Text>{product.description.substring(0,500).replace(/<\/?[^>]+(>|$)/g, "")} ...</Text> */}
+                {/* <Link to={"productPage/"+product.id} >Read more...</Link> */}
                 <hr className="lineBreaker"/>
                 <ProductExtras product={product} />
             </div>
