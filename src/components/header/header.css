@@ -16,14 +16,14 @@
     display: inline;
     float: right;
     position: relative;
-    top: -51px;
+    top: -47px;
     left: -34px;
     background-color: #ffffff;
-    padding: 12px 27px;
+    padding: 8px 27px;
     color: black;
     border-radius: 2px;
-    cursor: pointer; }
+    cursor: pointer;
+    margin-right: 20px; }
     .headerMain .postAdd a {
       color: #000000;
-      text-decoration: none;
-      font-weight: 800; }
+      text-decoration: none; }

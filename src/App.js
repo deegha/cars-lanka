@@ -17,7 +17,7 @@ import Register from "./components/register/register"
 import * as Authenticate from "./actions/authenticationActions"
 import Fire from "./services/fire"
 import LogOut from "./components/login/logOut"
-
+import Loading from "./components/reusable/loading/loading"
 import { fetchProductsList } from "./actions/productListActions"
 
 import "./App.css"
@@ -28,7 +28,6 @@ class App extends Component {
     this.removeAuthenticateListner = Fire.auth().onAuthStateChanged( user => {
       
       if(user){
-        console.log(user)
         this.props.authenticate()
       }else {
         this.props.logOut()

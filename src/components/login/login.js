@@ -5,18 +5,21 @@ import FormConroller from "../reusable/formConroller/formConroller"
 import {TextField, RaisedButton } from "material-ui"
 import H1 from "../reusable/heading/H1"
 import PaddingContainer from "../reusable/paddingContainer/paddingContainer"
+import InfoMessage  from "../reusable/infoMessage/infoMessage"
+
 import "./login.css"
 
 const Login = ({loginWithFb, authentication, handleTextChange, validation, invalidForm, login}) => 
 <Container>
     <div className="loginWrapper">
-        <H1>Login in to your account</H1>
+        <H1>Login/register to your account</H1>
         <Card>
             <PaddingContainer padding="70px 10px">
             <div className="loginWrapper">
                     <FormConroller>
-                        <div onClick={loginWithFb()} className="facebookLoginBtn">Login using facebook</div>
-                    </FormConroller>
+                        <div onClick={loginWithFb()} className="facebookLoginBtn">Continue with facebook</div>
+                    </FormConroller>    
+               
                     <FormConroller>
                         <TextField
                             onChange={handleTextChange("email")}
@@ -40,6 +43,9 @@ const Login = ({loginWithFb, authentication, handleTextChange, validation, inval
                             disabled={invalidForm}
                             onClick={login()}
                             primary={true}  />
+                    </FormConroller>
+                    <FormConroller>
+                        <InfoMessage>This form will create a user account if you have not already registered</InfoMessage>
                     </FormConroller>
             </div>
             </PaddingContainer>

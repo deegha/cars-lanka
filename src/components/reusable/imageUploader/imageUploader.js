@@ -31,13 +31,12 @@ class ProfilePage extends Component {
 
     desertRef.delete().then(function() {
       removeImage(image)
-      console.log("image removed")
     }).catch(function(error) {
       console.log(error)
     });
   }
 
-  render() { console.log(this.props)
+  render() {
     return (
       <div className="imageUploaderContainer">
         {this.props.images.map(image =>  <FlexRow key={image}>

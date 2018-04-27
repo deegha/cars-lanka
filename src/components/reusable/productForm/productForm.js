@@ -50,13 +50,13 @@ const ProductForm = ({
                     onChange={handleBodyType}
                     autoWidth={true}
                     >
-                    <MenuItem value="saloon" primaryText="Saloon" />
-                    <MenuItem value="hatchback" primaryText="Hatchback" />
-                    <MenuItem value="station_wagen" primaryText="Station wagon" />
-                    <MenuItem value="convertible" primaryText="Convertible" />
-                    <MenuItem value="cope_sport" primaryText="Cope/Sports" />
-                    <MenuItem value="suv/4x4" primaryText="SUV / 4x4" />
-                    <MenuItem value="mpv" primaryText="MPV" />
+                    <MenuItem value="Saloon" primaryText="Saloon" />
+                    <MenuItem value="Hatchback" primaryText="Hatchback" />
+                    <MenuItem value="Station wagen" primaryText="Station wagon" />
+                    <MenuItem value="Convertible" primaryText="Convertible" />
+                    <MenuItem value="Cope/sport" primaryText="Cope/Sports" />
+                    <MenuItem value="Suv/4x4" primaryText="SUV / 4x4" />
+                    <MenuItem value="MPV" primaryText="MPV" />
                 </SelectField>
             </FormConroller>
        
@@ -67,9 +67,9 @@ const ProductForm = ({
                     onChange={handleTransmission}
                     autoWidth={true}
                     >
-                    <MenuItem value="auto" primaryText="Auto gear" />
-                    <MenuItem value="stick" primaryText="Manual (stick shift)" />
-                    <MenuItem value="triptonic" primaryText="Triptonic" />
+                    <MenuItem value="Auto Gear" primaryText="Auto gear" />
+                    <MenuItem value="Manual Gear" primaryText="Manual (stick shift)" />
+                    <MenuItem value="Triptonic" primaryText="Triptonic" />
                 </SelectField>
             </FormConroller>
         </FelxRow>
@@ -114,9 +114,9 @@ const ProductForm = ({
                     onChange={handleChange}
                     autoWidth={true}
                     >
-                    <MenuItem value="brand_new" primaryText="Brand New" />
-                    <MenuItem value="reconditioned" primaryText="Reconditioned" />
-                    <MenuItem value="used" primaryText="Used" />
+                    <MenuItem value="Brand new" primaryText="Brand New" />
+                    <MenuItem value="Reconditioned" primaryText="Reconditioned" />
+                    <MenuItem value="Used" primaryText="Used" />
                 </SelectField>
             </FormConroller>
         </FelxRow>
