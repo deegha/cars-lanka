@@ -4,6 +4,6 @@
 
 import React from "react"
 
-const PaddingContainer = ({children, padding}) => <div style={{padding : padding}}>{children}</div>
+const PaddingContainer = ({children, padding, className, clickMethod}) => <div onClick={clickMethod} className={className} style={{padding : padding}}>{children}</div>
 
 export default PaddingContainer

@@ -1,0 +1,43 @@
+.filterContainer {
+    // max-width:200px;
+    position: fixed;
+    top: 100px;
+    left: 2px; 
+    overflow: hidden;
+    z-index: 2;
+    background-color: #ffffff;
+
+    .filterHeader {
+        width: 100%;
+        background-color: #00bcd4;
+        height: 52px;
+        color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        padding-left: 5px;
+        .closeFilter{
+            cursor: pointer;
+        } 
+       
+    }
+}
+
+.filter-enter {
+    opacity: 0.01;
+  }
+  
+  .filter-enter.filter-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .filter-leave {
+    opacity: 1;
+  }
+  
+  .filter-leave.filter-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }

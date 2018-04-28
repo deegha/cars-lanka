@@ -14,12 +14,13 @@ import CreateProductContainer from "./components/createProduct/createProductCont
 import Header from "./components/header/header"
 import Login from "./components/login/loginContainer"
 import Register from "./components/register/register"
-import * as Authenticate from "./actions/authenticationActions"
 import Fire from "./services/fire"
 import LogOut from "./components/login/logOut"
 import Loading from "./components/reusable/loading/loading"
-import { fetchProductsList } from "./actions/productListActions"
 
+import { getMakes } from "./actions/makeActions"
+import { fetchProductsList } from "./actions/productListActions"
+import * as Authenticate from "./actions/authenticationActions"
 import "./App.css"
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
 
   componentDidMount () {
     this.props.productsList()
+    this.props.getAllMakes()
   }
 
   componentWillUnmount () {
@@ -69,10 +71,11 @@ const mapStateToProps = ({authentication}) => ({
   authenticated :authentication.authenticated
 })
 
-const mapDispatchToProps = dipatch => ({
-  productsList : () => dipatch(fetchProductsList()),
-  authenticate :  () => dipatch(Authenticate.authenticateWithFb()),
-  logOut :  () => dipatch(Authenticate.logout())
+const mapDispatchToProps = dispatch => ({
+  productsList : () => dispatch(fetchProductsList()),
+  authenticate :  () => dispatch(Authenticate.authenticateWithFb()),
+  logOut :  () => dispatch(Authenticate.logout()),
+  getAllMakes : () => dispatch(getMakes()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App) 

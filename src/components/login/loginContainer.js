@@ -19,7 +19,6 @@ class LoginContainer extends React.Component {
             validation : {
                 email : "",
                 password : ""
-                
             }
         }
     }

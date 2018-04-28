@@ -19,6 +19,7 @@ const CreateProduct = ({validation,
             handleChange, 
             handleTextChange, 
             handleTransmission,
+            setLocation,
             handleTextChangeContact, submitForm}) => 
 <Container>
     <Card>
@@ -36,6 +37,7 @@ const CreateProduct = ({validation,
         handleTextChange={handleTextChange} 
         handleTransmission = {handleTransmission}
         handleTextChangeContact={handleTextChangeContact}
+        setLocation={setLocation}
         submitForm={submitForm}/>
 </Container>
 

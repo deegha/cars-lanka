@@ -21,7 +21,7 @@ class CreateProductContainer extends React.Component {
 
     updateWindowDimensions = () =>  this.setState({ width: window.innerWidth, height: window.innerHeight })
     
-    render () {
+    render () {console.log(this.props.product)
         return <CreateProduct 
                     validation = {this.props.validation}
                     addImage={this.props.addImage}
@@ -34,6 +34,7 @@ class CreateProductContainer extends React.Component {
                     handleBodyType = {this.props.handleBodyType}
                     handleAutoCompleteChange = {this.props.handleAutoCompleteChange}
                     removeImage = {this.props.removeImage}
+                    setLocation = {this.props.setLocation}
                     submitForm={this.props.submitForm} />
     }
 }
@@ -59,6 +60,10 @@ const mapDispatchToProps = dispatch => ({
     handleTextChange : field => event => {
         validation(field, event.target.value, dispatch)
         dispatch(handleChange(field , event.target.value))
+    },
+    setLocation : (location) => {
+        const {geometry,photos, ...newLocation} = location
+        dispatch(handleChange("location" , newLocation))
     } 
 })
 

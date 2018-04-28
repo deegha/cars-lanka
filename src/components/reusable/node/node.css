@@ -6,9 +6,11 @@
   .companyLogo img {
     width: 80%; }
 
-.jobDetails {
-  width: 60%; }
-  .jobDetails a {
+.productDetails {
+  width: 70%; }
+  .productDetails .priceNotSpecified {
+    margin-left: 10px; }
+  .productDetails a {
     color: #999;
     text-decoration: none; }
 

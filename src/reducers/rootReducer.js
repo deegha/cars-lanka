@@ -10,6 +10,7 @@ import { makesReducer as makes } from "./makesReducer"
 import { errorReducer as validation } from "./errorReducer"
 import { alertReducer as alert} from "./alertReducer" 
 import { authenticationReducer as authentication} from "./authenticationReducer"
+import { filterReducer as filter } from "./fliterReducer" 
 
 export const rootReducer = combineReducers({
     products,
@@ -17,5 +18,6 @@ export const rootReducer = combineReducers({
     makes,
     validation,
     alert,
-    authentication
+    authentication,
+    filter
 })

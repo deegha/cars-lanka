@@ -1,4 +1,5 @@
 import React from "react"
+import Autocomplete from 'react-google-autocomplete'
 
 import PaddingContainer from "../paddingContainer/paddingContainer"
 import FelxRow from "../flexRow/felxRow"
@@ -8,9 +9,11 @@ import MenuItem from 'material-ui/MenuItem'
 import FormConroller from "../formConroller/formConroller"
 import H1 from "../heading/H1"
 import AlertMessage from "../alertMessages/alertMessage"
+import {stylesLoacations} from "./locationStyles.js"
 
 const ProductForm = ({
     validation,
+    setLocation,
     handleTransmission,
     handleAutoCompleteChange, 
     handleBodyType,
@@ -136,15 +139,7 @@ const ProductForm = ({
 <Card>
     <PaddingContainer padding="20px 40px">
         <H1>Other details</H1>
-            <FormConroller>
-                <TextField
-                    value={product.location}
-                    onChange={handleTextChange("location")}
-                    hintText="Location"
-                    floatingLabelText="Location"
-                    errorText={validation.location}
-                />
-            </FormConroller>
+           
             <FormConroller>
                 <TextField
                     value={product.price}
@@ -166,7 +161,21 @@ const ProductForm = ({
                 />
             </FormConroller> 
             )}
-
+             <FormConroller>
+                <Autocomplete
+                    style={stylesLoacations}
+                    onPlaceSelected={setLocation} 
+                    types={['(cities)']}
+                    componentRestrictions={{country: "lk"}}
+                />
+                {/* <TextField
+                    value={product.location}
+                    onChange={handleTextChange("location")}
+                    hintText="Location"
+                    floatingLabelText="Location"
+                    errorText={validation.location}
+                /> */}
+            </FormConroller>
             <FormConroller>
                 <RaisedButton label="Create product" disabled={validation.invalid} onClick={submitForm()} primary={true}  />
             </FormConroller>

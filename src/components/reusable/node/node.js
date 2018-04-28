@@ -20,14 +20,14 @@ import "./node.css"
 
 const Node = ({product, nodeKey}) => 
     <Card className="wrapper">
-        <PaddingContainer padding="10px">
+        <PaddingContainer padding="0 10px">
         <FelxRow>
             <div className="companyLogo">
                 <Carousel images={product.images} />
             </div>
-            <div className="jobDetails">
+            <div className="productDetails">
                 <H1>{product.make+" "+product.model}</H1>
-                <H2>Rs : 200,000</H2>
+                <H2>Rs {product.price?product.price:<span className="priceNotSpecified"> Na</span>}</H2>
                 {/* <Text>{product.description.substring(0,500).replace(/<\/?[^>]+(>|$)/g, "")} ...</Text> */}
                 {/* <Link to={"productPage/"+product.id} >Read more...</Link> */}
                 <hr className="lineBreaker"/>
