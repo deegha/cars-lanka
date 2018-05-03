@@ -5,7 +5,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from "react-redux"
-import Notifications from 'react-notify-toast'
+import Alert from 'react-s-alert'
 
 import List from "./components/list/List"
 import SingleContainer from "./components/single/SingleContainer"
@@ -21,6 +21,9 @@ import Loading from "./components/reusable/loading/loading"
 import { getMakes } from "./actions/makeActions"
 import { fetchProductsList } from "./actions/productListActions"
 import * as Authenticate from "./actions/authenticationActions"
+
+import 'react-s-alert/dist/s-alert-default.css'
+import 'react-s-alert/dist/s-alert-css-effects/scale.css'
 import "./App.css"
 
 class App extends Component {
@@ -50,8 +53,8 @@ class App extends Component {
     return <Router>
      
       <div>
-        <Notifications />
         <Header />
+        <Alert stack={{limit: 3}} />
         <div className="spaceBetween" />
         <Switch>
           <Route exact path="/" component={List} />
@@ -59,7 +62,7 @@ class App extends Component {
           <Route exact path="/logOut" component={LogOut} />
           <Route exact path="/register" component={Register} />
           <Route path="/createProduct" component={this.props.authenticated?CreateProductContainer:Login} />
-          {/* <Route path="/productPage/:id" component={SingleContainer} /> */}
+          <Route path="/product/:id" component={SingleContainer} />
           <Route component={PageNotFound}/>
         </Switch>
       </div>

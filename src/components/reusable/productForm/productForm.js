@@ -6,9 +6,8 @@ import FelxRow from "../flexRow/felxRow"
 import Card from "../card/card"
 import {TextField, SelectField, RaisedButton, AutoComplete} from 'material-ui'
 import MenuItem from 'material-ui/MenuItem'
-import FormConroller from "../formConroller/formConroller"
+import FormConroller from "../formConroller/formConroller"  
 import H1 from "../heading/H1"
-import AlertMessage from "../alertMessages/alertMessage"
 import {stylesLoacations} from "./locationStyles.js"
 
 const ProductForm = ({
@@ -17,19 +16,20 @@ const ProductForm = ({
     handleTransmission,
     handleAutoCompleteChange, 
     handleBodyType,
+    handleFuelType,
     makes, handleChange, product, handleTextChange, handleTextChangeContact, submitForm}) => 
 <React.Fragment>
-<AlertMessage/>
- <Card>     
+ <Card>   
     <PaddingContainer padding="20px 40px">
     <H1>Vehicle details</H1>
-        <FelxRow>
+
             <FormConroller>
             <AutoComplete
                 floatingLabelText="Make (Brand)"
                 filter={AutoComplete.caseInsensitiveFilter}
                 onUpdateInput={handleAutoCompleteChange}
                 openOnFocus={true}
+                value={product.make}
                 dataSource={makes.makes}
                 errorText={validation.make}
                 />
@@ -44,8 +44,7 @@ const ProductForm = ({
                         errorText={validation.model}
                     />
             </FormConroller>
-        </FelxRow>
-        <FelxRow>
+ 
             <FormConroller>
                 <SelectField
                     floatingLabelText="Body Type"
@@ -75,8 +74,19 @@ const ProductForm = ({
                     <MenuItem value="Triptonic" primaryText="Triptonic" />
                 </SelectField>
             </FormConroller>
-        </FelxRow>
-        <FelxRow>
+            <FormConroller>
+                <SelectField
+                    floatingLabelText="Fuel type"
+                    value={product.fuel_type}
+                    onChange={handleFuelType}
+                    autoWidth={true}
+                    >
+                    <MenuItem value="Petrol" primaryText="Petrol" />
+                    <MenuItem value="Diesel" primaryText="Diesel" />
+                    <MenuItem value="Other" primaryText="Other" />
+                </SelectField>
+            </FormConroller>
+  
             <FormConroller>
                 <TextField
                     value={product.mileage}
@@ -98,8 +108,7 @@ const ProductForm = ({
                     errorText={validation.manufacture_year}
                 />
             </FormConroller>
-        </FelxRow>
-        <FelxRow>
+
             <FormConroller>
                 <TextField
                     value={product.engine_capacity}
@@ -122,7 +131,7 @@ const ProductForm = ({
                     <MenuItem value="Used" primaryText="Used" />
                 </SelectField>
             </FormConroller>
-        </FelxRow>
+
             <FormConroller>
                 <TextField
                     value={product.description}
@@ -147,6 +156,7 @@ const ProductForm = ({
                     hintText="Price (Rs) "
                     floatingLabelText="Rs"
                     errorText={validation.price}
+                    type="number"
                 />
             </FormConroller>
             {product.contacts.map((contact , key) =>  

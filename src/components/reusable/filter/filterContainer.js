@@ -10,7 +10,7 @@ class FilterContainer extends React.Component {
     constructor(props) {
         super (props)
         this.state = {
-            isFilterOpen : true,
+            isFilterOpen : false,
             filter : {
                 make : "",
                 minPrice : "",
@@ -29,7 +29,7 @@ class FilterContainer extends React.Component {
         this.setState({makes : this.props.makes})
     }
 
-    closeFilter = _=>_=> this.setState({isFilterOpen : false})
+    toggleFilter = _=>_=> this.setState({isFilterOpen : !this.state.isFilterOpen})
 
     handleBrand = (make) => this.setStateFilter({"make" : make})
     handleTextChange = feild => event => this.setStateFilter({[feild] : event.target.value })
@@ -47,7 +47,8 @@ class FilterContainer extends React.Component {
 
     setStateFilter = (object) => this.setState({filter : {...this.state.filter, ...object} })
 
-    filterProducts =  _=> _=> { 
+    filterProducts =  _=> event => { 
+        event.preventDefault()
         this.props.filterProducts(this.state.filter)
     }
 
@@ -56,7 +57,7 @@ class FilterContainer extends React.Component {
                        setLocation={this.setLocation}
                        handleBrand={this.handleBrand} 
                        filter = {this.state.filter}
-                       closeFilter={this.closeFilter} 
+                       toggleFilter={this.toggleFilter} 
                        handleTextChange = {this.handleTextChange}
                        filterProducts = {this.filterProducts}
                        isFilterOpen={this.state.isFilterOpen} />

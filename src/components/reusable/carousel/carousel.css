@@ -1,4 +1,16 @@
 .carouselContainer {
-  width: 100%; }
-  .carouselContainer img {
+  width: 100%;
+  transition: 1s ease; }
+  .carouselContainer .mainImageView img {
     width: 100%; }
+  .carouselContainer .allImages {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start; }
+    .carouselContainer .allImages img {
+      height: 70px;
+      margin: 5px; }
+      .carouselContainer .allImages img:first-child {
+        margin-left: 0; }
+      .carouselContainer .allImages img:last-child {
+        margin-right: 0; }

@@ -20,6 +20,7 @@ const CreateProduct = ({validation,
             handleTextChange, 
             handleTransmission,
             setLocation,
+            handleFuelType,
             handleTextChangeContact, submitForm}) => 
 <Container>
     <Card>
@@ -38,6 +39,7 @@ const CreateProduct = ({validation,
         handleTransmission = {handleTransmission}
         handleTextChangeContact={handleTextChangeContact}
         setLocation={setLocation}
+        handleFuelType={handleFuelType}
         submitForm={submitForm}/>
 </Container>
 

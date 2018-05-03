@@ -8,18 +8,15 @@ import Text from "../text/text"
 import FormConroller from "../formConroller/formConroller"
 import {stylesLoacations} from "../productForm/locationStyles"
 
-const Filter = ({setLocation, filter, handleBrand, makes, closeFilter, isFilterOpen, filterProducts, handleTextChange}) => 
-<ReactCSSTransitionGroup
-          transitionName="filter"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
-          {isFilterOpen?
-<div className="filterContainer" >
-    <div className="filterHeader" onClick={closeFilter()}>
+const Filter = ({setLocation, filter, handleBrand, makes, toggleFilter, isFilterOpen, filterProducts, handleTextChange}) => 
+<div>
+{!isFilterOpen?<div className="openFilter" onClick={toggleFilter()}>Filter products</div>:null}
+<div className="filterContainer" style={isFilterOpen?{width : "260px"}:{width : "0"}} >
+    <div className="filterHeader" onClick={toggleFilter()}>
         <PaddingContainer padding="0px 18px 0 0" className="closeFilter" >Close Filter</PaddingContainer>
     </div>
-    <PaddingContainer padding="10px" >
-        
+    <PaddingContainer padding="10px" style={isFilterOpen?{visibility : "hidden"}:{visibility : "visible"}} >
+        <form>
         <FormConroller>
             <AutoComplete
                 value = {filter.make} 
@@ -55,9 +52,10 @@ const Filter = ({setLocation, filter, handleBrand, makes, closeFilter, isFilterO
                 />
         </FormConroller>
         <FormConroller>
-            <RaisedButton label="Filter product"onClick={filterProducts()} primary={true}  />
+            <RaisedButton type="submit" label="Filter product" onClick={filterProducts()} primary={true}  />
         </FormConroller>
+        </form>
     </PaddingContainer>
-</div>:<div/>}
- </ReactCSSTransitionGroup>
+</div>
+</div>
 export default Filter

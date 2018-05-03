@@ -4,7 +4,8 @@
   left: 2px;
   overflow: hidden;
   z-index: 2;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  transition: 0.2s ease-in; }
   .filterContainer .filterHeader {
     width: 100%;
     background-color: #00bcd4;
@@ -18,16 +19,11 @@
     .filterContainer .filterHeader .closeFilter {
       cursor: pointer; }
 
-.filter-enter {
-  opacity: 0.01; }
-
-.filter-enter.filter-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in; }
-
-.filter-leave {
-  opacity: 1; }
-
-.filter-leave.filter-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in; }
+.openFilter {
+  cursor: pointer;
+  position: fixed;
+  top: 100px;
+  left: 2px;
+  padding: 10px;
+  background-color: #00bcd4;
+  color: #ffffff; }

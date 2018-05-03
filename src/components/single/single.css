@@ -1,34 +1,32 @@
-.wrapperSingleJob {
-  padding: 20px; }
+.singlePageContainer {
+  max-width: 800px;
+  margin: 0 auto; }
+  .singlePageContainer .productDescription {
+    color: #999;
+    line-height: 1.4; }
+  .singlePageContainer .singleColOne {
+    width: 60%; }
+    .singlePageContainer .singleColOne .priceTag {
+      margin: 10px 0;
+      color: #ffffff;
+      background-color: #00bcd4;
+      min-width: 100px;
+      max-width: 200px;
+      padding: 10px; }
+  .singlePageContainer ul li {
+    list-style: none;
+    line-height: 2;
+    color: #999; }
+    .singlePageContainer ul li span {
+      color: #00bcd4; }
 
-.singlePageLike {
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 64px;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: relative;
-  top: 3px; }
-
-.singlePageCompanyLogo {
-  width: 15%;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  justify-content: center;
-  border-right: 1px solid #ecf0f1; }
-  .singlePageCompanyLogo img {
-    width: 90%; }
-
-.FloatingBackBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 2%;
-  z-index: 2;
-  font-size: 53px;
-  cursor: pointer;
-  color: #9b59b6; }
-  .FloatingBackBtn:hover {
-    transform: scale(1.2, 1.2);
-    transition: transform 0.2s ease; }
+.footerContainer {
+  margin-top: 100px;
+  background-color: #2980b9;
+  padding: "10px 20px";
+  color: #ffffff;
+  line-height: 0.1; }
+  .footerContainer ul li {
+    list-style: none;
+    line-height: 2;
+    color: #fff; }

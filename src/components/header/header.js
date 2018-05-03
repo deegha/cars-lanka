@@ -4,15 +4,19 @@ import "./header.css"
 import Logo from "../../asserts/carsLanka-logo-black.png"
 import { Link } from "react-router-dom"
 import Icon from "../reusable/icon/icon"
+import FlatButton from 'material-ui/FlatButton'
 
 const Header = ({authenticated}) => 
 <div className="headerMain">
     <div className="sitelogoArea">
-    <Link to="/" ><img src={Logo} alt="cars lanka logo"/></Link>
+        
     </div>
-    {authenticated? <div className="postAdd"><Link to="/logout" >Logout</Link> </div>:null}
+    {authenticated? <div className="postAdd">
+    <Link to="/logout"><FlatButton labelStyle={{color:"#fff"}}  label="Logout" /></Link></div>:null}
     <div className="postAdd">
-        <Link to="/createProduct" >Post add for free</Link>
+        <Link to="/createProduct">
+        <FlatButton labelStyle={{color:"#fff"}} label="Post add for free" />
+        </Link>
     </div>
    
     

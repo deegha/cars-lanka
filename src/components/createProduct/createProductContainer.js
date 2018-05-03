@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux" 
+import  { Notifications } from "../reusable/notifications/notifications"
 
 import CreateProduct from "./createProduct"
 import { createProductAction, handleChange, handleTextChangeContact, addProductImages, removeProductImages } from "../../actions/productActions"
@@ -21,7 +22,20 @@ class CreateProductContainer extends React.Component {
 
     updateWindowDimensions = () =>  this.setState({ width: window.innerWidth, height: window.innerHeight })
     
-    render () {console.log(this.props.product)
+    submitForm = _=> _=> { 
+        const product = this.props.product
+        if(product.make !== "" 
+        && product.model !== ""
+        && product.body_type !== ""
+        && product.transmission !== ""
+        && product.price !== "") {
+            this.props.submitForm()
+        }else {
+            Notifications("error", "You have missed some mandatory feilds")
+        }
+    }
+
+    render () { 
         return <CreateProduct 
                     validation = {this.props.validation}
                     addImage={this.props.addImage}
@@ -35,7 +49,8 @@ class CreateProductContainer extends React.Component {
                     handleAutoCompleteChange = {this.props.handleAutoCompleteChange}
                     removeImage = {this.props.removeImage}
                     setLocation = {this.props.setLocation}
-                    submitForm={this.props.submitForm} />
+                    handleFuelType={this.props.handleFuelType}
+                    submitForm={this.submitForm} />
     }
 }
 
@@ -48,8 +63,9 @@ const mapDispatchToProps = dispatch => ({
     handleTransmission : (event, index, values) => dispatch(handleChange("transmission" , values)),
     handleChange : (event, index, values) => dispatch(handleChange("condition" , values)),
     handleBodyType : (event, index, values) => dispatch(handleChange("body_type" , values)),
+    handleFuelType : (event, index, values) => dispatch(handleChange("fuel_type" , values)),
     handleTextChangeContact : (field, key) => event => dispatch(handleTextChangeContact(field , key, event.target.value)),
-    submitForm : ()=> ()=> dispatch(createProductAction()),
+    submitForm :  ()=> dispatch(createProductAction()),
     addImage : image => dispatch(addProductImages(image)),
     removeImage : image => dispatch(removeProductImages(image)),
     getAllMakes : () => dispatch(getMakes()),

@@ -27,7 +27,9 @@ const initialState = {
         price : "",
         nego : "",
         images : [],
-        contacts : [{}],
+        contacts : [{
+            number : ""
+        }],
         views : 0
     },
     loading : false
@@ -79,6 +81,15 @@ export const productReducer = (state = initialState, action) => {
                     images : state.product.images.filter( image => image !== action.image )
                 }
             }
+        
+        case Actions.ACTIVE_PRODUCT : 
+            return {
+                ...state,
+                product : action.activeProduct,
+                loading : false
+            }
+        case Actions.ACTIVE_PRODUCT_INIT :
+            return initialState
         default : 
             return state
     }

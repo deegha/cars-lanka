@@ -14,8 +14,7 @@ import Card from "../card/card"
 import FelxRow from "../flexRow/felxRow"
 import ProductExtras from "../productExtras/productExtras"
 import PaddingContainer from "../paddingContainer/paddingContainer"
-import Carousel from "../carousel/carousel"
-
+import defaultImage from "../../../asserts/default.jpg"
 import "./node.css"
 
 const Node = ({product, nodeKey}) => 
@@ -23,7 +22,7 @@ const Node = ({product, nodeKey}) =>
         <PaddingContainer padding="0 10px">
         <FelxRow>
             <div className="companyLogo">
-                <Carousel images={product.images} />
+                <img src={product.images?product.images[0]:defaultImage} />
             </div>
             <div className="productDetails">
                 <H1>{product.make+" "+product.model}</H1>

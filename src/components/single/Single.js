@@ -1,65 +1,49 @@
-/**
- * Created by Deegha on 05/12/2018
- */
-
 import React from "react"
 
-// import Card from "../reusable/card/card"
-// import Container from "../reusable/container/container"
-// import H1 from "../reusable/heading/H1"
-// import H2 from "../reusable/heading/H2"
-// import {TextHtmlConverter}  from "../reusable/text/text"
-// import PaddingContainer from "../reusable/paddingContainer/paddingContainer"
-// import PageNotFound from "../pageNotFound/pageNotFound"
-// import FelxRow from "../reusable/flexRow/felxRow"
-// import JobExtras from "../reusable/jobExtras/jobExtras"
-// import { Link } from "react-router-dom"
-// import Icon from "../reusable/icon/icon"
-// import ScrollTop from "../reusable/scrollTop/scrollTop"
-import Modal from "../reusable/modal/modal"
+import FlexColumn from "../reusable/flexColumn/flexColumn"
+import FlexRow from "../reusable/flexRow/felxRow"
+import PaddingContainer from "../reusable/paddingContainer/paddingContainer"
+import Carousel from "../reusable/carousel/carousel"
+import H2 from "../reusable/heading/H2"
+import H1 from "../reusable/heading/H1"
+import FloatingBackBtn from "../reusable/floatingBackBtn/floatingBackBtn"
 
 import "./single.css"
 
-const Single = () =>  <div>this is the single page</div>
-    // activeJob.id ?
-    // <Container>
-    //     <Modal show={showModal} toggle={toggleModal} >
-    //         <img src={activeJob.company_logo} alt="logo" />
-    //     </Modal>
+import Footer from "./footer"
+import ConactDetails from "./contactDetails"
+import VehicleDetails from "./vehicleDetails"
 
-    //      <Link to="/" className="FloatingBackBtn" >
-    //         <Icon name="chevron-circle-left"/>
-    //     </Link>
-    //     <ScrollTop />
-    //     <Card>
-    //         <div className="wrapperSingleJob">
-    //             <FelxRow>
-    //                 <div  className="singlePageCompanyLogo" >
-    //                     <span onClick={toggleModal()}>
-    //                         <img src={activeJob.company_logo} alt="logo" />
-    //                     </span>
-    //                 </div>
-    //                 <FelxRow>
-    //                     <H1>{activeJob.title}</H1>
-    //                 </FelxRow>
-    //             </FelxRow>
-    //             <PaddingContainer padding="10px">
-    //                 <JobExtras job={activeJob} />
-    //                 <H2>description</H2>
-    //                     <PaddingContainer padding="20px">
-    //                         <TextHtmlConverter>{activeJob.description}</TextHtmlConverter>
-    //                     </PaddingContainer>
-    //                 <H2>how to apply</H2>
-    //                     <PaddingContainer padding="20px">
-    //                         <TextHtmlConverter>{activeJob.how_to_apply}</TextHtmlConverter>
-    //                     </PaddingContainer>
-    //             </PaddingContainer>
-    //         </div>
-    //     </Card>
-       
-    // </Container>
-    // :<PageNotFound/>
+const Single = ({product}) => 
+    <div>
+    <div className="singlePageContainer">
+        <FlexColumn>
+            <FloatingBackBtn />
+            <PaddingContainer>
+                <FlexRow>
+                    <div className="singleColOne">
+                        <Carousel images={product.images} />
+                        <div className="priceTag">
+                            {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'LKR' }).format(product.price)}
+                        </div>
+                        <div>
+                            <H1>{product.make+" "+product.model}</H1>
+                            <H2>Description</H2>
+                            <p className="productDescription">{product.description}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <ConactDetails product={product}/>
+                        <VehicleDetails product={product} />
+                    </div>
+                </FlexRow>
+            </PaddingContainer>
+                
+           
+        </FlexColumn>
+    </div>
+    <PaddingContainer>
+        <Footer />
+    </PaddingContainer>
+    </div>
 export default Single
-
-
- 

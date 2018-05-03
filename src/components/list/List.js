@@ -4,6 +4,7 @@
 
 import React from "react"
 import { connect } from "react-redux"   
+import { Link } from 'react-router-dom'
 
 import Node from "../reusable/node/node"
 import { Filter, FilterView } from "../reusable/filter/"
@@ -17,7 +18,10 @@ const List = ({products, makes, filter}) =>
     <div className="productListWrapper"> 
         {products.loading?<Loading/>: products.products.map((product, key) =>
             <FilterView filter={filter} product={product} key={key}>
-            <Node nodeKey={key}  product={product}/></FilterView>)}
+            <Link className="nodeLink" to={"product/"+product.id}>
+                <Node nodeKey={key}  product={product}/>
+            </Link>
+            </FilterView>)}
     <ScrollTop />
     </div> 
 </div>
