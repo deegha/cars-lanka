@@ -11,6 +11,7 @@ import { errorReducer as validation } from "./errorReducer"
 import { alertReducer as alert} from "./alertReducer" 
 import { authenticationReducer as authentication} from "./authenticationReducer"
 import { filterReducer as filter } from "./fliterReducer" 
+import { windowReducer as windowDim } from "./windowReducer"
 
 export const rootReducer = combineReducers({
     products,
@@ -19,5 +20,6 @@ export const rootReducer = combineReducers({
     validation,
     alert,
     authentication,
-    filter
+    filter,
+    windowDim
 })

@@ -12,16 +12,18 @@ import H2 from "../heading/H2"
 import Text from "../text/text"
 import Card from "../card/card"
 import FelxRow from "../flexRow/felxRow"
+import FlexColumn from "../flexColumn/flexColumn"
 import ProductExtras from "../productExtras/productExtras"
 import PaddingContainer from "../paddingContainer/paddingContainer"
 import defaultImage from "../../../asserts/default.jpg"
 import "./node.css"
 
-const Node = ({product, nodeKey}) => 
+const Node = ({product, nodeKey, windowDim}) => 
     <Card className="wrapper">
+        
         <PaddingContainer padding="0 10px">
-        <FelxRow>
-            <div className="companyLogo">
+        <FelxRow makeColumn={windowDim.width < 400 ?true:false}> 
+            <div className="vehicleImage" style={windowDim.width < 400 ? {width: "100%"}:{}}>
                 <img src={product.images?product.images[0]:defaultImage} />
             </div>
             <div className="productDetails">

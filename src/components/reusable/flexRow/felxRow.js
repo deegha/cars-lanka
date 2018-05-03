@@ -6,6 +6,6 @@ import React from "react"
 
 import "./felxRow.css"
 
-const FelxRow = ({children}) => <div className="felxRow">{children}</div>
+const FelxRow = ({children, makeColumn}) => <div style={{flexDirection:makeColumn?"column":"row"}} className="felxRow">{children}</div>
 
 export default FelxRow

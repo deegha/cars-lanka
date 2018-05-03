@@ -21,6 +21,7 @@ import Loading from "./components/reusable/loading/loading"
 import { getMakes } from "./actions/makeActions"
 import { fetchProductsList } from "./actions/productListActions"
 import * as Authenticate from "./actions/authenticationActions"
+import { setWindowDimensions } from "./actions/windowActions"
 
 import 'react-s-alert/dist/s-alert-default.css'
 import 'react-s-alert/dist/s-alert-css-effects/scale.css'
@@ -28,6 +29,9 @@ import "./App.css"
 
 class App extends Component {
 
+
+  updateWindowDimensions = () => this.props.setDimentions(window.innerWidth, window.innerHeight)
+  
   componentWillMount () {
     this.removeAuthenticateListner = Fire.auth().onAuthStateChanged( user => {
       
@@ -39,13 +43,16 @@ class App extends Component {
       
     })
   }
-
+  
   componentDidMount () {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions)
     this.props.productsList()
     this.props.getAllMakes()
   }
 
   componentWillUnmount () {
+    window.removeEventListener('resize', this.updateWindowDimensions)
     this.removeAuthenticateListner()
   }
 
@@ -79,6 +86,7 @@ const mapDispatchToProps = dispatch => ({
   authenticate :  () => dispatch(Authenticate.authenticateWithFb()),
   logOut :  () => dispatch(Authenticate.logout()),
   getAllMakes : () => dispatch(getMakes()),
+  setDimentions : (width, height) => dispatch(setWindowDimensions(width, height))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App) 

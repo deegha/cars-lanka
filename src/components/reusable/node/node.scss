@@ -1,15 +1,16 @@
 
-.companyLogo {
+.vehicleImage {
     width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     img {
-        width: 80%;
+        width: 100%;
     }
 }
 .productDetails {
     width: 70%;
+    padding: 0 20px;
     .priceNotSpecified {
         margin-left: 10px;
     }
