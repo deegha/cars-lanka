@@ -1,13 +1,15 @@
 .singlePageContainer {
+    
     max-width: 800px;
     margin: 0 auto;
     .productDescription {
         color: #999;
         line-height: 1.4;
+        animation: 0.4s ease-out 0s 1 slideInFromLeft;
     }
     .singleColOne {
         width: 60%;
-
+        animation: 0.1s ease-out 0s 1 slideInFromLeft;
         .priceTag {
             margin: 10px 0;
             color: #ffffff;
@@ -15,6 +17,7 @@
             min-width:100px;
             max-width:200px;
             padding: 10px; 
+            animation: 0.3s ease-out 0s 1 slideInFromLeft;
         }
     }
 
@@ -46,3 +49,11 @@
     }
 }
 
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

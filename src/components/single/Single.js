@@ -14,19 +14,19 @@ import Footer from "./footer"
 import ConactDetails from "./contactDetails"
 import VehicleDetails from "./vehicleDetails"
 
-const Single = ({product}) => 
+const Single = ({product ,ismobile}) => 
     <div>
     <div className="singlePageContainer">
         <FlexColumn>
             <FloatingBackBtn />
             <PaddingContainer>
-                <FlexRow>
-                    <div className="singleColOne">
+                <FlexRow makeColumn={ismobile}>
+                    <div className="singleColOne" style={ismobile?{width:"100%"}:{}}>
                         <Carousel images={product.images} />
                         <div className="priceTag">
                             {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'LKR' }).format(product.price)}
                         </div>
-                        <div>
+                        <div style={ismobile?{padding:15}:{}}>
                             <H1>{product.make+" "+product.model}</H1>
                             <H2>Description</H2>
                             <p className="productDescription">{product.description}</p>

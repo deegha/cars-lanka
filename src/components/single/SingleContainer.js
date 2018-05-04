@@ -8,7 +8,7 @@ import {connect} from "react-redux"
 import { setActiveProduct, initializeActiveProduct } from "../../actions/productActions"
 import Single from "./Single"
 import Loading from "../reusable/loading/loading"
-
+import {mobileBrekPoint} from "../../services/breakPoints"
 
 
 class SingleContainer extends React.Component {
@@ -31,15 +31,16 @@ class SingleContainer extends React.Component {
         this.props.resetActiveProduct()
     }
 
-    render() { console.log(this.props.product)
+    render() {
         return this.props.loading?<Loading />:
-        <Single changeimage={this.props.changeimage} product={this.props.product} gallery={this.state.gallery}/>
+        <Single ismobile={this.props.ismobile} changeimage={this.props.changeimage} product={this.props.product} gallery={this.state.gallery}/>
     }
 }   
 
-const mapStateToProps = ({product}) => ({
+const mapStateToProps = ({product, windowDim}) => ({
     product : product.product,
     loading : product.loading,
+    ismobile : windowDim.width < mobileBrekPoint? true : false
 }) 
 
 

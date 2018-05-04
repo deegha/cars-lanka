@@ -3,16 +3,19 @@
   margin: 0 auto; }
   .singlePageContainer .productDescription {
     color: #999;
-    line-height: 1.4; }
+    line-height: 1.4;
+    animation: 0.4s ease-out 0s 1 slideInFromLeft; }
   .singlePageContainer .singleColOne {
-    width: 60%; }
+    width: 60%;
+    animation: 0.1s ease-out 0s 1 slideInFromLeft; }
     .singlePageContainer .singleColOne .priceTag {
       margin: 10px 0;
       color: #ffffff;
       background-color: #00bcd4;
       min-width: 100px;
       max-width: 200px;
-      padding: 10px; }
+      padding: 10px;
+      animation: 0.3s ease-out 0s 1 slideInFromLeft; }
   .singlePageContainer ul li {
     list-style: none;
     line-height: 2;
@@ -30,3 +33,9 @@
     list-style: none;
     line-height: 2;
     color: #fff; }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%); }
+  100% {
+    transform: translateX(0); } }
