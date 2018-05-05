@@ -6,6 +6,7 @@ import {TextField, RaisedButton } from "material-ui"
 import H1 from "../reusable/heading/H1"
 import PaddingContainer from "../reusable/paddingContainer/paddingContainer"
 import InfoMessage  from "../reusable/infoMessage/infoMessage"
+import { Link } from 'react-router-dom'
 
 import "./login.css"
 
@@ -43,6 +44,10 @@ const Login = ({loginWithFb, authentication, handleTextChange, validation, inval
                             disabled={invalidForm}
                             onClick={login()}
                             primary={true}  />
+                    </FormConroller>
+                       
+                    <FormConroller>
+                    <Link to="/resetpassword" >Reset password</Link>
                     </FormConroller>
                     <FormConroller>
                         <InfoMessage>This form will create a user account if you have not already registered</InfoMessage>

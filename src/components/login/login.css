@@ -27,3 +27,7 @@
       width: 100%;
       left: 0;
       top: 0; }
+
+.resetPasswordError {
+  text-align: center;
+  color: #e74c3c; }

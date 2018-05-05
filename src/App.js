@@ -22,6 +22,7 @@ import { getMakes } from "./actions/makeActions"
 import { fetchProductsList } from "./actions/productListActions"
 import * as Authenticate from "./actions/authenticationActions"
 import { setWindowDimensions } from "./actions/windowActions"
+import passwrodResetContainer from "./components/passwordReset/passwrodResetContainer"
 
 import 'react-s-alert/dist/s-alert-default.css'
 import 'react-s-alert/dist/s-alert-css-effects/scale.css'
@@ -70,6 +71,7 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route path="/createProduct" component={this.props.authenticated?CreateProductContainer:Login} />
           <Route path="/product/:id" component={SingleContainer} />
+          <Route path="/resetpassword" component={passwrodResetContainer} />
           <Route component={PageNotFound}/>
         </Switch>
       </div>
