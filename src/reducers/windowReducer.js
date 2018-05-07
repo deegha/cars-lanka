@@ -7,7 +7,7 @@ const initialState = {
 
 export const windowReducer = (state= initialState ,action) => {
     switch (action.type) {
-        case Actions.SET_WINDOW_DIMENTIONS : console.log(action, "DSfds")
+        case Actions.SET_WINDOW_DIMENTIONS : 
             return {
                 width : action.width,
                 height : action.height

@@ -52,7 +52,7 @@ class FilterContainer extends React.Component {
         this.props.filterProducts(this.state.filter)
     }
 
-    render() {  console.log(this.state.filter)
+    render() { 
         return <Filter makes={this.state.makes} 
                        setLocation={this.setLocation}
                        handleBrand={this.handleBrand} 

@@ -1,12 +1,14 @@
 import React from "react"
 import { connect }  from "react-redux"
 import {notify} from 'react-notify-toast'
+import  { Notifications } from "../reusable/notifications/notifications"
 
 import Login from "./login"
 import { authenticateWithFb } from "../../actions/authenticationActions"
 import Fire from "../../services/fire"
 import { facebookProvider } from "../../services/fire"
 import { isValidEmail } from "../../utils/validators"
+import { createUser } from "../../services/backendClient"
 
 class LoginContainer extends React.Component {
     constructor(props) {
@@ -68,10 +70,21 @@ class LoginContainer extends React.Component {
             Fire.auth().fetchProvidersForEmail(this.state.email)
             .then(providers => { 
                 if(providers.length === 0 ){
-                    return Fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+                    Fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(user => {
+                        createUser(user.uid, "", this.state.email)
+                        .then(()=>{
+                            console.log(this.state)
+                            this.props.authenticate()
+                            Notifications("success", "User created successfully")
+                        }).catch(err => {
+                            Notifications("error", err.message)
+                        })
+                    }).catch(err => {
+                        Notifications("error", err.message)
+                    })
                 }else if (providers.indexOf("password") === -1) {
                     this.resetForm()
-                    notify.show('You have created your account with facebook, use that to log in', "warning")
+                    Notifications("warning", "You have created your account with facebook, use that to log in")
                 }else {
                     return Fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password)
                 }
@@ -80,9 +93,13 @@ class LoginContainer extends React.Component {
                 this.resetForm()
                 if(user && user.email) {
                     this.props.authenticate()
+                    Notifications("success", "User signed successfully")
                 }
             } )
-            .catch(err => console.log(err))
+            .catch(err => {
+                Notifications("error", err.message)
+                console.log(err)
+            })
         } 
     }   
 }

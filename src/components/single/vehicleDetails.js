@@ -28,7 +28,7 @@ const VehicleDetails = ({product}) =>
         </li>
         <li>
      
-            <BoldText>Engin capacity</BoldText> : {product.engine_capacity}
+            <BoldText>Engine capacity</BoldText> : {product.engine_capacity}
         </li>
     </ul>
 </div>

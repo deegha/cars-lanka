@@ -6,4 +6,4 @@ export const facebookProvider = new firebase.auth.FacebookAuthProvider()
 
 export const LogOut = ()  => Fire.auth().signOut()
 
-export default Fire
+export default Fire 

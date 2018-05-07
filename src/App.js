@@ -45,7 +45,7 @@ class App extends Component {
     })
   }
   
-  componentDidMount () {
+  componentDidMount () { 
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions)
     this.props.productsList()
@@ -79,12 +79,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({authentication}) => ({
+const mapStateToProps = ({authentication, products}) => ({
   authenticated :authentication.authenticated
 })
 
 const mapDispatchToProps = dispatch => ({
-  productsList : () => dispatch(fetchProductsList()),
+  productsList : _=> dispatch(fetchProductsList()),
   authenticate :  () => dispatch(Authenticate.authenticateWithFb()),
   logOut :  () => dispatch(Authenticate.logout()),
   getAllMakes : () => dispatch(getMakes()),

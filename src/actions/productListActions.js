@@ -32,9 +32,12 @@ export const getProductsSuccess = products => ({
     products
 })
 
-export const fetchProductsList = () => dispatch => {
+export const fetchProductsList = startAt => dispatch => { 
     dispatch(getProductsRequest())
-    getProductsList()
-        .then(data => { dispatch(getProductsSuccess(data.val()))} )
+
+    // console.log(getProductsList(startAt))
+
+    getProductsList(startAt)
+        .then(data => { dispatch(getProductsSuccess(data))} )
         .catch(err => getProductsFail())
 }   

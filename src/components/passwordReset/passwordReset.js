@@ -13,7 +13,7 @@ const PasswordReset = ({ onSubmit, email, isInvalid, onChange, error}) =>
 <Container>
     <form onSubmit={onSubmit}>
     <div className="loginWrapper">
-        <H1>Reset your passwor</H1>
+        <H1>Reset your password</H1>
         <Card>
             <PaddingContainer padding="70px 10px">
             <div className="loginWrapper">

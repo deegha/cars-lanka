@@ -6,7 +6,7 @@ import { createProduct, getProduct } from "../services/backendClient"
 import uuid from "uuid/v4"
 import b64 from "base-64"
 import  { Notifications } from "../components/reusable/notifications/notifications"
-
+import Fire from "../services/fire"
 
 /**
  * Action constants
@@ -42,7 +42,8 @@ export const createProductAction = _ => (dispatch, getState) => {
     const product = {
         ...getState().product.product,
         created_at :  Date.now(),
-        id : b64.encode(uuid())
+        id : b64.encode(uuid()),
+        user : Fire.auth().currentUser.email
     }
   
     dispatch(productRequest)
