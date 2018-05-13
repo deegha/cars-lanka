@@ -21,7 +21,6 @@ import "./node.css"
 
 const Node = ({product, nodeKey, ismobile}) => 
     <Card className="wrapper">
-        {console.log(ismobile)}
         <PaddingContainer padding="0 10px">
         <FelxRow > 
             <div className="vehicleImage" >

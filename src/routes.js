@@ -11,7 +11,9 @@ import Register from "./components/register/register"
 import LogOut from "./components/login/logOut"
 import Loading from "./components/reusable/loading/loading"
 import passwrodResetContainer from "./components/passwordReset/passwrodResetContainer"
+import LandingPage from "./components/landingPage/landingPage"
 import Alert from 'react-s-alert'
+
 
 const Routes = ({authenticated}) => <Router>
     <div>
@@ -19,7 +21,8 @@ const Routes = ({authenticated}) => <Router>
         <Alert stack={{limit: 3}} />
         <div className="spaceBetween" />
         <Switch>
-            <Route exact path="/" component={List} />
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/page/:page" component={List} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logOut" component={LogOut} />
             <Route exact path="/register" component={Register} />

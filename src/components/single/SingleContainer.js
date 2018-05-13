@@ -31,9 +31,15 @@ class SingleContainer extends React.Component {
         this.props.resetActiveProduct()
     }
 
+    goBack = () => () => this.props.history.goBack()
+
     render() {
         return this.props.loading?<Loading />:
-        <Single ismobile={this.props.ismobile} changeimage={this.props.changeimage} product={this.props.product} gallery={this.state.gallery}/>
+        <Single ismobile={this.props.ismobile} 
+                changeimage={this.props.changeimage}
+                goBack={this.goBack}
+                product={this.props.product} 
+                gallery={this.state.gallery}/>
     }
 }   
 

@@ -10,5 +10,21 @@
     .productListContainer .productListWrapper .nodeLink {
       width: 100%; }
 
+.paginationContainer ul {
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  max-width: 600px; }
+  .paginationContainer ul li {
+    list-style: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #00bcd4; }
+    .paginationContainer ul li a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer; }
+
 .spaceBetween {
   height: 110px; }

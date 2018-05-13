@@ -15,7 +15,7 @@ import ConactDetails from "./contactDetails"
 import VehicleDetails from "./vehicleDetails"
 import MetaTags from 'react-meta-tags'
 
-const Single = ({product ,ismobile}) => 
+const Single = ({product ,ismobile, goBack}) => 
     <div>
         <MetaTags>
             <title>{product.make+" "+product.model}</title>
@@ -27,7 +27,7 @@ const Single = ({product ,ismobile}) =>
         </MetaTags>
     <div className="singlePageContainer">
         <FlexColumn>
-            <FloatingBackBtn />
+            <FloatingBackBtn goBack={goBack}/>
             <PaddingContainer>
                 <FlexRow makeColumn={ismobile}>
                     <div className="singleColOne" style={ismobile?{width:"100%"}:{}}>
