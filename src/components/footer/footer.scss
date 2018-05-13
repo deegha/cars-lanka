@@ -6,11 +6,17 @@
     line-height: 0.1;
     width: 100%;
     ul {
+        max-width: 250px;
         li {
             list-style: none;
             line-height: 2;
             color: #fff;
-            
-        }
+            font-weight: 600;
+            a{
+                text-decoration: none;
+                color: #fff;
+                font-weight: 600;
+            }
+        }   
     }
 }

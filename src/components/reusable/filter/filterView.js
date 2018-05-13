@@ -41,7 +41,7 @@ const FilterView = ({ children, filter, product }) => {
     if(show)
         return children
     else 
-        return <div />
+        return null
 }
 
 export default FilterView

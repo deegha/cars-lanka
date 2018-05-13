@@ -21,7 +21,7 @@ const Single = ({product ,ismobile, goBack}) =>
             <title>{product.make+" "+product.model}</title>
             <meta name="description" content={product.make+" "+product.model} />
             <meta property="og:title" content={product.make} />
-            <meta property="og:image" content={product.images[0]} />
+            <meta property="og:image" content={product.images?product.images[0]:null} />
             <meta property="og:site_name" content="logcars.com" />
             <meta property="og:type" content="product" />
         </MetaTags>

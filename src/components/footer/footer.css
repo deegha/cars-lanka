@@ -5,7 +5,14 @@
   color: #ffffff;
   line-height: 0.1;
   width: 100%; }
-  .footerContainer ul li {
-    list-style: none;
-    line-height: 2;
-    color: #fff; }
+  .footerContainer ul {
+    max-width: 250px; }
+    .footerContainer ul li {
+      list-style: none;
+      line-height: 2;
+      color: #fff;
+      font-weight: 600; }
+      .footerContainer ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600; }
