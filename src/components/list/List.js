@@ -18,6 +18,7 @@ import InfinityScroll from "../infinityScroll/infinityScroll"
 import MetaTags from 'react-meta-tags'
 import "./list.css"
 import SiteImage from "../../utils/logo_transparent_background.png"
+import Footer from "../footer/footer"
 
 class List extends React.Component {
     constructor(props) {
@@ -49,7 +50,6 @@ class List extends React.Component {
     </MetaTags>
 
     render () {
-        console.log(this.state.activePage)
         const {products, makes, filter, ismobile, startAt, getProductsList} = this.props
 
         const per_page = 10
@@ -91,9 +91,10 @@ class List extends React.Component {
                         </div>
 
                     </React.Fragment>}
-                
+               
             </div> 
             <ScrollTop />
+            {products.loading?null:<Footer />}
         </div>
     }
 }

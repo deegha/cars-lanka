@@ -1,6 +1,7 @@
 import React from "react"
 import FlexRow from "../reusable/flexRow/felxRow"
 import PaddingContainer from "../reusable/paddingContainer/paddingContainer"
+import "./footer.css"
 
 const Footer = () => <div className="footerContainer">
     <FlexRow>

@@ -33,22 +33,6 @@
     }
 }
 
-.footerContainer {
-    margin-top: 100px;
-    background-color: #2980b9;
-    padding:"10px 20px";
-    color: #ffffff;
-    line-height: 0.1;
-    ul {
-        li {
-            list-style: none;
-            line-height: 2;
-            color: #fff;
-            
-        }
-    }
-}
-
 @keyframes slideInFromLeft {
     0% {
       transform: translateX(-100%);

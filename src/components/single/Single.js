@@ -10,7 +10,7 @@ import FloatingBackBtn from "../reusable/floatingBackBtn/floatingBackBtn"
 
 import "./single.css"
 
-import Footer from "./footer"
+import Footer from "../footer/footer"
 import ConactDetails from "./contactDetails"
 import VehicleDetails from "./vehicleDetails"
 import MetaTags from 'react-meta-tags'

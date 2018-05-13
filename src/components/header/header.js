@@ -38,7 +38,7 @@ class Header extends React.Component {
         {ismobile?<div className="postAdd"> 
             <Icon 
                 onClick={this.handleDrawer()}
-                styles={{fontSize:"36px", marginRight:"-11px"}} 
+                styles={{fontSize:"29px", marginRight:"-11px"}} 
                 className="fas fa-bars" name="menu" /> 
             </div> :
         <div>
