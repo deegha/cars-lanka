@@ -22,8 +22,15 @@
 .openFilter {
   cursor: pointer;
   position: fixed;
-  top: 100px;
-  left: 2px;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
   padding: 10px;
-  background-color: #00bcd4;
-  color: #ffffff; }
+  background-color: #ffffff; }
+  .openFilter .openFilterBtn {
+    background-color: #00bcd4;
+    color: #ffffff;
+    padding: 10px; }

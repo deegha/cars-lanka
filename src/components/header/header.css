@@ -10,13 +10,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 64px; }
+    width: 166px;
+    height: 55px;
+    cursor: pointer; }
+    .headerMain .sitelogoArea img {
+      width: 86px;
+      max-height: 42px; }
   .headerMain .postAdd {
     display: inline;
     float: right;
     position: relative;
-    top: -55px;
+    top: -47px;
     left: -36px;
     color: #fff;
     cursor: pointer; }

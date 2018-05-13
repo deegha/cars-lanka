@@ -13,9 +13,18 @@ import "./single.css"
 import Footer from "./footer"
 import ConactDetails from "./contactDetails"
 import VehicleDetails from "./vehicleDetails"
+import MetaTags from 'react-meta-tags'
 
 const Single = ({product ,ismobile}) => 
     <div>
+        <MetaTags>
+            <title>{product.make+" "+product.model}</title>
+            <meta name="description" content={product.make+" "+product.model} />
+            <meta property="og:title" content={product.make} />
+            <meta property="og:image" content={product.images[0]} />
+            <meta property="og:site_name" content="logcars.com" />
+            <meta property="og:type" content="product" />
+        </MetaTags>
     <div className="singlePageContainer">
         <FlexColumn>
             <FloatingBackBtn />
@@ -38,8 +47,6 @@ const Single = ({product ,ismobile}) =>
                     </div>
                 </FlexRow>
             </PaddingContainer>
-                
-           
         </FlexColumn>
     </div>
     <PaddingContainer>

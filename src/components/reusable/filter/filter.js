@@ -10,7 +10,8 @@ import {stylesLoacations} from "../productForm/locationStyles"
 
 const Filter = ({setLocation, filter, handleBrand, makes, toggleFilter, isFilterOpen, filterProducts, handleTextChange}) => 
 <div>
-{!isFilterOpen?<div className="openFilter" onClick={toggleFilter()}>Filter products</div>:null}
+<div className="openFilter" >
+{!isFilterOpen?<div className="openFilterBtn" onClick={toggleFilter()}>Filter products</div>:null}</div>
 <div className="filterContainer" style={isFilterOpen?{width : "260px"}:{width : "0"}} >
     <div className="filterHeader" onClick={toggleFilter()}>
         <PaddingContainer padding="0px 18px 0 0" className="closeFilter" >Close Filter</PaddingContainer>

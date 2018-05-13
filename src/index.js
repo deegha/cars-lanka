@@ -14,17 +14,13 @@ import { createStore, applyMiddleware } from "redux"
 
 import { rootReducer } from "./reducers/rootReducer"
 
-
-// const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = createStore(rootReducer,  applyMiddleware(thunkMiddleware))
-// const persistor = persistStore(store)
+
 
 ReactDOM.render(<Provider store={store}>
-                    
                         <MuiThemeProvider>
                             <App />
                         </MuiThemeProvider>
-     
                 </Provider>, document.getElementById('root'))
 
 registerServiceWorker()

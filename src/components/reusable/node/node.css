@@ -1,14 +1,15 @@
 .vehicleImage {
-  width: 30%;
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center; }
   .vehicleImage img {
-    width: 100%; }
+    width: 100%;
+    max-width: 150px; }
 
 .productDetails {
-  width: 70%;
-  padding: 0 20px; }
+  width: 80%;
+  padding: 0 1px 0 10px; }
   .productDetails .priceNotSpecified {
     margin-left: 10px; }
   .productDetails a {

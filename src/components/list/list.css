@@ -9,3 +9,6 @@
     align-items: center; }
     .productListContainer .productListWrapper .nodeLink {
       width: 100%; }
+
+.spaceBetween {
+  height: 110px; }

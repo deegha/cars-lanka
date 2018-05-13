@@ -5,7 +5,7 @@
 import * as Actions from "../actions/productListActions"
 
 const initialState = {
-    products : [],
+    products : {},
     loading : false,
     lastItem : 0
 }
@@ -23,14 +23,15 @@ export const productsListReducer = (state = initialState, action) => {
                 loading : false
             }
         case Actions.GET_PRODUCTS_SUCCESS : 
-            return {
+            return{
                 ...state,
-                products : [
+                products : {
                     ...state.products,
                     ...Object.keys(action.products).map(product => action.products[product].entry) 
-                 ] ,
+                } ,
                 loading : false
             }
+             
         default :
             return state
     }

@@ -1,12 +1,11 @@
-.productExtrasContainer {
-  padding: 20px 0; }
-  .productExtrasContainer .productDetailExtras {
-    color: #999;
-    font-size: 14px;
-    font-weight: 100;
-    margin-right: 15px;
-    margin-bottom: 10px;
-    display: inline-block; }
-  .productExtrasContainer a {
-    color: #999;
-    text-decoration: none; }
+.productExtrasContainer .productDetailExtras {
+  color: #999;
+  font-size: 14px;
+  font-weight: 100;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  display: inline-block; }
+
+.productExtrasContainer a {
+  color: #999;
+  text-decoration: none; }
