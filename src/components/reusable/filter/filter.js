@@ -7,8 +7,9 @@ import PaddingContainer from "../paddingContainer/paddingContainer"
 import Text from "../text/text"
 import FormConroller from "../formConroller/formConroller"
 import {stylesLoacations} from "../productForm/locationStyles"
+import FlexRow from "../flexRow/felxRow" 
 
-const Filter = ({setLocation, filter, handleBrand, makes, toggleFilter, isFilterOpen, filterProducts, handleTextChange}) => 
+const Filter = ({setLocation, filter, handleBrand, makes, toggleFilter, isFilterOpen, filterProducts, handleTextChange, clearFilter}) => 
 <div>
 <div className="openFilter" >
 {!isFilterOpen?<div className="openFilterBtn" onClick={toggleFilter()}>Filter products</div>:null}</div>
@@ -30,7 +31,7 @@ const Filter = ({setLocation, filter, handleBrand, makes, toggleFilter, isFilter
         </FormConroller>
         <FormConroller>
             <TextField
-                    onChange={handleTextChange("minPrice")}
+                    onChange={handleTextChange("min_price")}
                     hintText="Min price"
                     floatingLabelText="Min price"
                     type="number"
@@ -38,7 +39,7 @@ const Filter = ({setLocation, filter, handleBrand, makes, toggleFilter, isFilter
         </FormConroller>
         <FormConroller>
             <TextField
-                    onChange={handleTextChange("maxPrice")}
+                    onChange={handleTextChange("max_price")}
                     hintText="Max price"
                     floatingLabelText="Max price"
                     type="number"
@@ -53,7 +54,11 @@ const Filter = ({setLocation, filter, handleBrand, makes, toggleFilter, isFilter
                 />
         </FormConroller>
         <FormConroller>
-            <RaisedButton type="submit" label="Filter product" onClick={filterProducts()} primary={true}  />
+            <FlexRow>
+                <RaisedButton type="submit" label="Filter product" onClick={filterProducts()} primary={true}  />
+                <div style={{width:"2px"}} />
+                <RaisedButton type="submit" label="Clear Filter" onClick={clearFilter()} primary={true}  />
+            </FlexRow>
         </FormConroller>
         </form>
     </PaddingContainer>

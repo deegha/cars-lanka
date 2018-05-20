@@ -7,6 +7,7 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import { push } from "react-router-redux"
 import Pagination from "react-js-pagination"
+import Helmet from 'react-helmet'
 
 import Node from "../reusable/node/node"
 import { Filter, FilterView } from "../reusable/filter/"
@@ -20,22 +21,30 @@ import "./list.css"
 import SiteImage from "../../utils/logo_transparent_background.png"
 import Footer from "../footer/footer"
 
+import { getMakes } from "../../actions/makeActions"
+
 class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          activePage: 0
+          activePage: 0,
+          filter : {}
         }
     }
 
     componentWillReceiveProps(next) {
-        this.setState({"activePage" : next.match.params.page})
+        this.setState({
+                "activePage" : next.match.params.page,
+                filter : next.filter
+            })
     }
 
     componentDidMount() {
         this.setState({"activePage" : this.props.match.params.page})
+        this.props.productsList(this.state.filter)
+        this.props.getAllMakes()
     }
-    
+
     handlePageChange = (pageNumber) => {
         this.props.history.push('/page/' +pageNumber)
     }
@@ -53,31 +62,31 @@ class List extends React.Component {
         const {products, makes, filter, ismobile, startAt, getProductsList} = this.props
 
         const per_page = 10
-        const ItemCount = Object.keys(products.products).length
+        let ItemCount = Object.keys(products.products).length
         const pages = Math.ceil(ItemCount / per_page) 
         const current_page = this.state.activePage
         const start_offest = (current_page - 1) * per_page
         let start_count = 0
 
         return  <div className="productListContainer"> 
-       
+            <Helmet title='New and used vehicles' />
             {makes.loading?null:<Filter makes={makes.makes} />}
             <div className="productListWrapper"> 
-                {this.setMeta()}
+              
                 {products.loading? <Loading/>: <React.Fragment>
                         {Object.keys(products.products).map((product, key) => {
                                 
                                 if(key >= start_offest && start_count < per_page) {
                                     start_count++;
-                                    return <FilterView filter={filter} product={products.products[product]} 
-                                    key={key}>
+                                    return <React.Fragment key={key}>
                                         <Link className="nodeLink" to={"/product/"+products.products[product].id}>
                                             <Node nodeKey={key}  product={products.products[product]} ismobile={ismobile}/>
                                         </Link>
-                                    </FilterView>
+                                    </React.Fragment>
                                 }
-
                         })}
+
+                        {(pages > 1)?
                         <div className="paginationContainer">
                             <Pagination
                                 hideNavigation={true}
@@ -88,7 +97,7 @@ class List extends React.Component {
                                 pageRangeDisplayed={10}
                                 onChange={this.handlePageChange}
                                 />
-                        </div>
+                        </div>:null}
 
                     </React.Fragment>}
                
@@ -104,12 +113,15 @@ const mapStateToProps = ({products, makes, filter, windowDim }) =>  ({
     startAt : products.lastItem,
     makes : makes,
     filter : filter.filter,
-    ismobile : windowDim.width < mobileBrekPoint? true : false
+    ismobile : windowDim.width < mobileBrekPoint? true : false,
+    filter : filter.filter
 })
 
 const mapDispatchToProps = dispatch => ({
-    getProductsList : () =>_ => dispatch(fetchProductsList()),
-    changePage : pageNumber => push('/page='+pageNumber)
+    getProductsList : filter =>_ => dispatch(fetchProductsList(filter)),
+    changePage : pageNumber => push('/page='+pageNumber),
+    productsList : _=> dispatch(fetchProductsList()),
+    getAllMakes : () => dispatch(getMakes())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(List)

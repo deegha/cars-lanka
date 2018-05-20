@@ -3,6 +3,7 @@
  */
 
 import * as Actions from "../actions/productListActions"
+import { stat } from "fs";
 
 const initialState = {
     products : {},
@@ -31,7 +32,14 @@ export const productsListReducer = (state = initialState, action) => {
                 } ,
                 loading : false
             }
-             
+        case Actions.FILTER_PRODUCT_SUCCESS :
+            return {
+                ...state,
+                products : {
+                    ...Object.keys(action.products).map(product => action.products[product].entry) 
+                } ,
+                loading : false
+            }
         default :
             return state
     }

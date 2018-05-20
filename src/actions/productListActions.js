@@ -11,7 +11,7 @@ import { getProductsList } from "../services/backendClient"
 export const GET_PRODUCTS_REQUEST = "GET_PRODUCTS_REQUEST"
 export const GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS"
 export const GET_PRODUCTS_FAIL  = "GET_PRODUCTS_FAIL"
-
+export const FILTER_PRODUCT_SUCCESS = "FILTER_PRODUCT_SUCCESS" 
 
 /**
  * Action creators
@@ -32,12 +32,24 @@ export const getProductsSuccess = products => ({
     products
 })
 
-export const fetchProductsList = startAt => dispatch => { 
+export const filterProductSuccess = products => ({
+    type : FILTER_PRODUCT_SUCCESS,
+    products
+})
+
+export const fetchProductsList = filter => dispatch => { 
     dispatch(getProductsRequest())
 
     // console.log(getProductsList(startAt))
 
-    getProductsList(startAt)
+    getProductsList(filter)
         .then(data => { dispatch(getProductsSuccess(data))} )
+        .catch(err => getProductsFail())
+}   
+
+export const filterProducts = filter => dispatch => { 
+    dispatch(getProductsRequest())
+    getProductsList(filter)
+        .then(data => {dispatch(filterProductSuccess(data))} )
         .catch(err => getProductsFail())
 }   

@@ -54,7 +54,10 @@ class Header extends React.Component {
         </div>
         }
     
-        <Drawer open={this.state.drawer} styles={{zIndex:6}}>
+        <Drawer 
+            docked={false}
+            onRequestChange={(open) => this.setState({drawer: open})}
+            open={this.state.drawer} styles={{zIndex:6}}>
             <MenuItem>
                 <Link to="/">
                     <FlatButton labelStyle={{color:"#000"}} label="Home" />

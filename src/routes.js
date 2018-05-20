@@ -1,5 +1,6 @@
 import React from "react" 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Helmet from 'react-helmet'
 
 import List from "./components/list/List"
 import SingleContainer from "./components/single/SingleContainer"

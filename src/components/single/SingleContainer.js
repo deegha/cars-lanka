@@ -18,6 +18,8 @@ class SingleContainer extends React.Component {
             gallery : "",
             showModal : false
         }
+
+        console.log(this.props.filter)
     }
 
     toggleModal = _=> _=> this.setState({showModal : !this.state.showModal})
@@ -43,10 +45,11 @@ class SingleContainer extends React.Component {
     }
 }   
 
-const mapStateToProps = ({product, windowDim}) => ({
+const mapStateToProps = ({product, windowDim, filter}) => ({
     product : product.product,
     loading : product.loading,
-    ismobile : windowDim.width < mobileBrekPoint? true : false
+    ismobile : windowDim.width < mobileBrekPoint? true : false,
+    filter
 }) 
 
 

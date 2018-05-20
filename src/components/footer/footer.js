@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import FlexRow from "../reusable/flexRow/felxRow"
 import PaddingContainer from "../reusable/paddingContainer/paddingContainer"
 import "./footer.css"
-import FacebookProvider, { Like }from 'react-facebook'
+// import FacebookProvider, { Like }from 'react-facebook'
 import Icon from "../reusable/icon/icon"
 import {mobileBrekPoint} from "../../services/breakPoints"
 
@@ -29,11 +29,11 @@ const Footer = ({ismobile}) => <div className="footerContainer">
                     Twitte us
                     </a>
                    </li>
-                <li>
+                {/* <li style={{overflow:"hidden"}}>
                 <FacebookProvider appId="102709803917490">
                     <Like href="https://www.facebook.com/logcars" colorScheme="light" showFaces share />
                 </FacebookProvider>
-                </li>
+                </li> */}
               
             </ul>
         </PaddingContainer>       

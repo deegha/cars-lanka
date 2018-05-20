@@ -6,8 +6,7 @@ import React, { Component } from 'react'
 
 import { connect } from "react-redux"
 
-import { getMakes } from "./actions/makeActions"
-import { fetchProductsList } from "./actions/productListActions"
+
 import * as Authenticate from "./actions/authenticationActions"
 import { setWindowDimensions } from "./actions/windowActions"
 import Fire from "./services/fire"
@@ -30,15 +29,12 @@ class App extends Component {
       }else {
         this.props.logOut()
       }
-      
     })
   }
   
   componentDidMount () { 
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions)
-    this.props.productsList()
-    this.props.getAllMakes()
   }
 
   componentWillUnmount () {
@@ -56,10 +52,8 @@ const mapStateToProps = ({authentication, products}) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  productsList : _=> dispatch(fetchProductsList()),
   authenticate :  () => dispatch(Authenticate.authenticateWithFb()),
   logOut :  () => dispatch(Authenticate.logout()),
-  getAllMakes : () => dispatch(getMakes()),
   setDimentions : (width, height) => dispatch(setWindowDimensions(width, height))
 })
 
